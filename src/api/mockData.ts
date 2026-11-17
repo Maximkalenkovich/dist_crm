@@ -1,0 +1,165 @@
+import type { CoverageZone, Deal, FieldTask } from './types'
+
+export const mockDeals: Deal[] = [
+  {
+    id: 'D-1042',
+    title: 'Подключение FTTH — ул. Независимости',
+    clientName: 'Алексей Ковалёв',
+    phone: '+375 29 111-22-33',
+    address: 'Минск, ул. Независимости, 12',
+    status: 'check_address',
+    tariff: 'Оптика 500',
+    balance: 0,
+    connectionStatus: 'pending',
+    createdAt: '2026-11-14T09:20:00',
+    history: [
+      {
+        id: 'h1',
+        at: '2026-11-14T09:21:00',
+        channel: 'system',
+        text: 'Лид создан с лендинга',
+      },
+      {
+        id: 'h2',
+        at: '2026-11-14T10:05:00',
+        channel: 'call',
+        text: 'Клиент подтвердил адрес и тариф',
+      },
+      {
+        id: 'h3',
+        at: '2026-11-15T11:40:00',
+        channel: 'chat',
+        text: 'Запросил срок монтажа',
+      },
+    ],
+  },
+  {
+    id: 'D-1038',
+    title: 'Смена тарифа — пр. Победителей',
+    clientName: 'Мария Смирнова',
+    phone: '+375 33 555-01-02',
+    address: 'Минск, пр. Победителей, 45',
+    status: 'install',
+    tariff: 'Оптика 300',
+    balance: 24.5,
+    connectionStatus: 'offline',
+    createdAt: '2026-11-10T14:10:00',
+    history: [
+      {
+        id: 'h4',
+        at: '2026-11-10T14:12:00',
+        channel: 'email',
+        text: 'Заявка на апгрейд тарифа',
+      },
+      {
+        id: 'h5',
+        at: '2026-11-12T16:00:00',
+        channel: 'system',
+        text: 'Назначен монтажник Иван',
+      },
+    ],
+  },
+  {
+    id: 'D-1021',
+    title: 'Новое подключение — ул. Я. Коласа',
+    clientName: 'ООО «Север»',
+    phone: '+375 17 200-30-40',
+    address: 'Минск, ул. Я. Коласа, 37',
+    status: 'done',
+    tariff: 'Бизнес 1Гбит',
+    balance: 120,
+    connectionStatus: 'online',
+    createdAt: '2026-11-01T08:00:00',
+    history: [
+      {
+        id: 'h6',
+        at: '2026-11-01T08:05:00',
+        channel: 'system',
+        text: 'Сделка создана менеджером',
+      },
+      {
+        id: 'h7',
+        at: '2026-11-03T18:20:00',
+        channel: 'system',
+        text: 'Подключение завершено, биллинг синхронизирован',
+      },
+    ],
+  },
+]
+
+export const mockTasks: FieldTask[] = [
+  {
+    id: 'T-77',
+    dealId: 'D-1038',
+    title: 'Монтаж ONT и проверка сигнала',
+    address: 'Минск, пр. Победителей, 45',
+    lat: 53.93,
+    lng: 27.53,
+    status: 'on_site',
+    assignee: 'Иван Петров',
+    photos: [],
+    dueAt: '2026-11-17T16:00:00',
+  },
+  {
+    id: 'T-81',
+    dealId: 'D-1042',
+    title: 'Выезд: проверка возможности подключения',
+    address: 'Минск, ул. Независимости, 12',
+    lat: 53.91,
+    lng: 27.56,
+    status: 'assigned',
+    assignee: 'Иван Петров',
+    photos: [],
+    dueAt: '2026-11-18T12:00:00',
+  },
+  {
+    id: 'T-69',
+    dealId: 'D-1021',
+    title: 'Финальный фотоотчёт',
+    address: 'Минск, ул. Я. Коласа, 37',
+    lat: 53.92,
+    lng: 27.6,
+    status: 'done',
+    assignee: 'Иван Петров',
+    photos: ['photo-1.jpg'],
+    dueAt: '2026-11-03T17:00:00',
+  },
+]
+
+export const mockZones: CoverageZone[] = [
+  {
+    id: 'z1',
+    name: 'Центр FTTH',
+    level: 'ftth',
+    points: [
+      { x: 18, y: 22 },
+      { x: 48, y: 16 },
+      { x: 62, y: 40 },
+      { x: 40, y: 58 },
+      { x: 16, y: 46 },
+    ],
+  },
+  {
+    id: 'z2',
+    name: 'Восток GPON',
+    level: 'gpon',
+    points: [
+      { x: 58, y: 28 },
+      { x: 86, y: 24 },
+      { x: 90, y: 55 },
+      { x: 68, y: 70 },
+      { x: 54, y: 48 },
+    ],
+  },
+  {
+    id: 'z3',
+    name: 'Север (план)',
+    level: 'planned',
+    points: [
+      { x: 24, y: 8 },
+      { x: 52, y: 6 },
+      { x: 56, y: 22 },
+      { x: 28, y: 26 },
+    ],
+  },
+]

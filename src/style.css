@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(47, 198, 246, 0.18), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(123, 220, 181, 0.12), transparent 50%),
+    #0b1220;
+  color: #e8eef8;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.card {
+  @apply rounded-2xl border border-line bg-panel/90 shadow-soft;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition;
+}
+
+.btn-primary {
+  @apply btn bg-accent text-ink hover:brightness-110;
+}
+
+.btn-ghost {
+  @apply btn border border-line bg-transparent text-white/90 hover:bg-white/5;
+}
+
+.input {
+  @apply w-full rounded-xl border border-line bg-ink/60 px-3 py-2 text-sm outline-none ring-accent/40 placeholder:text-white/35 focus:ring-2;
+}
